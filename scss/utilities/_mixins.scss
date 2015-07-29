@@ -66,7 +66,6 @@
 	}
 
 
-
 // Adjacent Siblings Margins
 
 @mixin doubly($margin: 1em) {
@@ -76,4 +75,10 @@
 	}
 }
 
-
+@mixin transition($speed) {
+	-webkit-transition 	: all $speed ease-in-out;
+	-moz-transition 	: all $speed ease-in-out;
+	-ms-transition 		: all $speed ease-in-out;
+	-o-transition 		: all $speed ease-in-out;
+	transition 			: all $speed ease-in-out;
+}

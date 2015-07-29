@@ -1,3 +1,13 @@
+/* # Genesis Child Theme
+Theme Name: JP Genesis Starter
+Theme URI: http://www.johnpotessdesign.com
+Description: John Potess Design Genesis Starter Theme
+Author: John Potess
+Author URI: http://www.johnpotessdesign.com
+Template: genesis
+Template Version: 0.0.1
+Tags: mobile-first, responsive, genesis
+*/
 @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -364,9 +374,9 @@ th {
 body {
   font-size: 16px;
   line-height: 1.5;
-  background-color: #d6d7d9;
+  background-color: #ebecec;
   color: #353535;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   margin: 0;
   -webkit-font-smoothing: antialiased; }
@@ -387,19 +397,19 @@ textarea:focus,
   transition: all 0.1s ease-in-out; }
 
 ::-moz-selection {
-  background-color: #333;
-  color: #fff; }
+  background-color: #fff;
+  color: #1b1b1b; }
 
 ::selection {
-  background-color: #333;
-  color: #fff; }
+  background-color: #fff;
+  color: #1b1b1b; }
 
 a {
-  color: #e5554e;
-  text-decoration: none; }
-
-a:hover {
-  color: #333; }
+  color: #EB0042;
+  text-decoration: none;
+  font-weight: 400; }
+  a:hover {
+    color: #353535; }
 
 p {
   margin: 0 0 28px;
@@ -417,19 +427,21 @@ b,
 strong {
   font-weight: 700; }
 
-blockquote,
-cite,
+cite
 em,
 i {
   font-style: italic; }
 
 blockquote {
-  margin: 40px; }
+  font-size: 1.5em;
+  margin: 1.66667em;
+  font-style: italic;
+  font-weight: 300; }
 
 blockquote::before {
   content: "\201C";
   display: block;
-  font-size: 30px;
+  font-size: 1.25em;
   height: 0;
   left: -20px;
   position: relative;
@@ -443,29 +455,39 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333;
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-  line-height: 1.2;
+  color: #1b1b1b;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 10px; }
 
 h1 {
-  font-size: 36px; }
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.125; }
 
 h2 {
-  font-size: 30px; }
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2; }
 
 h3 {
-  font-size: 24px; }
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25; }
 
 h4 {
-  font-size: 20px; }
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.23077; }
 
 h5 {
-  font-size: 18px; }
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.27273; }
 
 h6 {
-  font-size: 16px; }
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.33333; }
 
 /* ## Objects
 --------------------------------------------- */

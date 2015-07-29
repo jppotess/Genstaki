@@ -1,3 +1,76 @@
 // ==========================================================
-// Config
+// Global Config
 // ==========================================================
+
+//Font Stacks
+
+$font-url--google		: 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+
+$font-family--secondary	: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family--primary	: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Descriptive Base Colors
+
+$white		: #fff;
+$black		: #0b0b0b;
+$gray		: #797e83;
+
+$nile-blue		: #1A3747;
+$shiraz			: #870030;
+$razzberry		: #F70058;
+
+
+// Color Palette Modifiers
+
+$palettes: (
+	gray: (
+		xx-light: lighten($gray, 43%),
+		x-light : lighten($gray, 35%),
+		light   : lighten($gray, 12%),
+		base 	: $gray,
+		dark 	: darken($gray, 8%),
+		x-dark 	: darken($gray, 16%)
+	),
+	black: (
+		light 	: lighten($black, 10%),
+		base 	: $black,
+		dark 	: darken($black, 10%)
+	)
+);
+
+// Color Usage
+
+$color-primary	: $nile-blue;
+$color-secondary: $shiraz;
+$color-accent	: $razzberry;
+
+// // UI Colors
+
+// $ui-colors: (
+// 	default : $---,
+// 	success : $---,
+// 	error	: $---,
+// 	warning : $---,
+// 	info	: $---,
+// );
+
+// Text
+
+$base__font-size: 16px;
+$base__line		: 24px;
+$letter-space	: 1px;
+
+// Border radius
+
+$br--default	: .4em;
+$br--round		: 50%;
+
+// Path to Assets
+
+$path--rel		: "../images/img";
+
+// Breakpoints
+
+$brkpoint-sm	: 1px;
+$brkpoint-md	: 768px;
+$brkpoint-lg	: 1100px;

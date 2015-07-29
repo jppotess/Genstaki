@@ -1,3 +1,84 @@
 // ==========================================================
 // Mixins
 // ==========================================================
+
+
+//Media Queries
+
+@mixin mq($break) {
+	@if $break == "small" {
+		@media (min-width: $brkpoint-sm) and (max-width: $brkpoint-md) {
+			@content;
+		}
+	}
+	@else if $break == "medium" {
+		@media (min-width: $brkpoint-md + 1) {
+			@content;
+		}
+	}
+	@else if $break == "large" {
+		@media (min-width: $brkpoint-lg) {
+			@content;
+		}
+	}
+	@else {
+		@error "No value could be retrieved for '#{$break}'";
+	}
+}
+
+
+// Generate modifier color Clases
+@mixin bg-colors($map) {
+	@each $theme, $color in $map {
+		&--#{$theme} {
+			background-color: $color;
+		}
+	}
+}
+
+@mixin img-replace($img, $w, $h, $disp: block) {
+	background-image: url('#{path--rel}/#($img}');
+	background-repeat: no-repeat;
+	width: $w;
+	height: $h;
+	display: $disp;
+}
+
+// Generate pseudo classes mixin
+
+@mixin p-el(
+	$el,
+	$el-w: null,
+	$el-h: null) {
+
+	@if $el == "before" or $el == "after" {
+		&:#{$el} {
+			@extend %pseudos;
+			width: $el-w;
+			height: $el-h;
+			@content;
+		}
+	}
+	@else {
+			@warn "#{$el} is not a valid pseudo-element.";
+		}
+		
+	}
+
+
+// Adjacent Siblings Margins
+
+@mixin doubly($margin: 1em) {
+	& + & {
+		margin-left: $margin;
+		@content;
+	}
+}
+
+@mixin transition($speed) {
+	-webkit-transition 	: all $speed ease-in-out;
+	-moz-transition 	: all $speed ease-in-out;
+	-ms-transition 		: all $speed ease-in-out;
+	-o-transition 		: all $speed ease-in-out;
+	transition 			: all $speed ease-in-out;
+}

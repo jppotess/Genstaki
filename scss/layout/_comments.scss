@@ -1,0 +1,68 @@
+// ==========================================================
+// Comments
+// ==========================================================
+
+
+.comment-respond,
+.entry-pings {
+	background-color: #fff;
+	margin-bottom: 40px;
+	padding: 40px 40px 16px;
+}
+
+.entry-comments {
+	background-color: #fff;
+	margin-bottom: 40px;
+	padding: 40px;
+}
+
+.comment-header {
+	font-size: $base-font-size;
+}
+
+li.comment {
+	background-color: palette(gray, light);
+	border: 2px solid $white;
+	border-right: none;
+}
+
+.comment-content {
+	clear: both;
+}
+
+.comment-list li {
+	margin-top: 24px;
+	padding: 32px;
+}
+
+.comment-list li li {
+	margin-right: -32px;
+}
+
+.comment-respond input[type="email"],
+.comment-respond input[type="text"],
+.comment-respond input[type="url"] {
+	width: 50%;
+}
+
+.comment-respond label {
+	display: block;
+	margin-right: 12px;
+}
+
+.entry-comments .comment-author {
+	margin-bottom: 0;
+}
+
+.entry-pings .reply {
+	display: none;
+}
+
+.bypostauthor {
+}
+
+.form-allowed-tags {
+	background-color: palette(gray, light);
+	font-size: $base-font-size;
+	padding: 24px;
+}

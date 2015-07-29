@@ -1,0 +1,30 @@
+// ==========================================================
+// Genesis-aa --- Archive Description/Author box
+// ==========================================================
+
+
+.archive-title {
+	font-size: em(20px);
+}
+
+.archive-description,
+.author-box {
+	background-color: #fff;
+	font-size: $base-font-size;
+	margin-bottom: 40px;
+	padding: 40px;
+}
+
+.author-box-title {
+	font-size: $base-font-size;
+	margin-bottom: 4px;
+}
+
+.archive-description p:last-child,
+.author-box p:last-child {
+	margin-bottom: 0;
+}
+
+.author-box .avatar {
+	margin-right: 24px;
+}

@@ -2,15 +2,37 @@
 // Base Styles -- define what elements look like by default
 // ==========================================================
 
-* {
-	-mox-box-sizing: border-box;
-	box-sizing: border-box;
+
+*,
+input[type="search"] {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
 }
 
+/* ## Float Clearing
+--------------------------------------------- */
+
+.author-box,
+.clearfix,
+.entry,
+.entry-content,
+.footer-widgets,
+.nav-primary,
+.nav-secondary,
+.pagination,
+.site-container,
+.site-footer,
+.site-header,
+.site-inner,
+.wrap {
+	@extend %clearfixb; //before
+	@extend %clearfix; //after
+}
 
 body {
-	font-size: $base__font-size;
-	line-height: ($base__line/$base__font-size);
+	font-size: $base-font-size;
+	line-height: ($base-line/$base-font-size);
 	background-color: palette(gray, xx-light);
 	color: $p-text;
 	font-family: $font-family--base;
@@ -111,40 +133,68 @@ h6 {
 }
 
 h1 {
-	font-size: 48px;
+	font-size: em(48px);
 	font-weight: $font-weight--bold;
 	line-height: (54px/48px);
 }
 
 h2 {
-	font-size: 40px;
+	font-size: em(40px);
 	font-weight: $font-weight--medium;
 	line-height: (48px/40px);
 }
 
 h3 {
-	font-size: 32px;
+	font-size: em(32px);
 	font-weight: $font-weight--bold;
 	line-height: (40px/32px);
 }
 
 h4 {
-	font-size: 26px;
+	font-size: em(26px);
 	font-weight: $font-weight--bold;
 	line-height: (32px/26px);
 }
 
 h5 {
-	font-size: 22px;
+	font-size: em(22px);
 	font-weight: $font-weight--medium;
 	line-height: (28px/22px);
 }
 
 h6 {
-	font-size: 18px;
+	font-size: em(18px);
 	font-weight: $font-weight--ultra-bold;
 	line-height: (24px/18px);
 }
+
+/* ## Tables
+--------------------------------------------- */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 2;
+	margin-bottom: em(40px);
+	width: 100%;
+}
+
+tbody {
+	border-bottom: $base-border;
+}
+
+td {
+	border-top: $base-border;
+	padding: 6px 0;
+	text-align: left;
+}
+
+th {
+	font-weight: $font-weight--medium;
+	text-align: left;
+}
+
+
 
 /* ## Objects
 --------------------------------------------- */
@@ -153,16 +203,12 @@ embed,
 iframe,
 img,
 object,
-video,
-.wp-caption {
+video{
 	max-width: 100%;
 }
 
 img {
+	margin-bottom: em(24px);
+	max-width: 100%;
 	height: auto;
-}
-
-.featured-content img,
-.gallery img {
-	width: auto;
 }

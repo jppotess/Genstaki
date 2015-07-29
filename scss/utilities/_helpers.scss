@@ -1,11 +1,19 @@
 // ==========================================================
-// Helpers
+// Helpers - Extends
 // ==========================================================
 
 // Clearfix
 
 %clearfix {
 	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+%clearfixb {
+	&:before {
 		content: "";
 		display: table;
 		clear: both;

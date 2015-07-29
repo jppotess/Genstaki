@@ -20,13 +20,37 @@ $font-weight--ultra-bold: 900;
 
 // Descriptive Base Colors
 
-$white		: #fff;
-$black		: #1b1b1b;
-$gray		: #797e83;
+$white			: #fff;
+$gray			: #999999;
+$black			: #1b1b1b;
+$black-light	: #333;
 
 $nile-blue		: #1A3747;
 $shiraz			: #870030;
-$razzberry		: #EB0042;
+$razzberry		: #EB1551;
+
+$plant			: #5BCE73;
+$ocean			: #3873CE;
+$carnation		: #F85C5C;
+$sunrise		: #F89462;
+$light-blue		: #84A1CE;
+
+
+// Color Usage
+
+$color-primary	: $nile-blue;
+$color-secondary: $shiraz;
+$color-accent	: $razzberry;
+
+// UI Colors
+
+$ui-colors: (
+	default : $ocean,
+	success : $plant,
+	error	: $carnation,
+	warning : $sunrise,
+	info	: $light-blue
+);
 
 
 // Color Palette Modifiers
@@ -39,40 +63,23 @@ $palettes: (
 		base 	: $gray,
 		dark 	: darken($gray, 8%),
 		x-dark 	: darken($gray, 16%)
-	),
-	black: (
-		light 	: lighten($black, 10%),
-		base 	: $black,
-		dark 	: darken($black, 10%),
 	)
 );
 
 // Text Color
 
-$p-text			: lighten($black, 10%);
+$p-text			: $black-light;
 $h-text			: $black;
-
-// Color Usage
-
-$color-primary	: $nile-blue;
-$color-secondary: $shiraz;
-$color-accent	: $razzberry;
-
-// // UI Colors
-
-// $ui-colors: (
-// 	default : $---,
-// 	success : $---,
-// 	error	: $---,
-// 	warning : $---,
-// 	info	: $---,
-// );
 
 // Text
 
-$base__font-size: 16px;
-$base__line		: 24px;
+$base-font-size : 16px;
+$base-line		: 24px;
 $letter-space	: 1px;
+
+// Border
+$base-border-color: lighten($gray, 12%);
+$base-border: 1px solid $base-border-color;
 
 // Border radius
 

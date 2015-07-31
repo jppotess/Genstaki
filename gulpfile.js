@@ -1,4 +1,4 @@
-
+// Test
 
 var gulp 		= require('gulp'),
 	concat 		= require('gulp-concat'),
@@ -35,7 +35,7 @@ gulp.task('compileSass', function() {
 		.pipe(maps.init())
 			.pipe(sass())
 		.pipe(maps.write('./'))
-		.pipe(gulp.dest('css'));
+		.pipe(gulp.dest('./'));
 });
 
 

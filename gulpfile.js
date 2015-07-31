@@ -1,12 +1,14 @@
 
 
-var gulp 	= require('gulp'),
-	concat 	= require('gulp-concat'),
-	uglify 	= require('gulp-uglify'),
-	rename 	= require('gulp-rename'),
-	maps 	= require('gulp-sourcemaps'),
-	sass	= require('gulp-sass'),
-	del 	= require('del');
+var gulp 		= require('gulp'),
+	concat 		= require('gulp-concat'),
+	uglify 		= require('gulp-uglify'),
+	rename 		= require('gulp-rename'),
+	maps 		= require('gulp-sourcemaps'),
+	sass		= require('gulp-sass'),
+	del 		= require('del');
+	browserSync = require('browser-sync')
+	reload		= browserSync.reload;
 
 // Concat JS Scripts
 gulp.task("concatScripts", function () {

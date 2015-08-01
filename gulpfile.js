@@ -1,3 +1,5 @@
+
+
 var gulp 		= require('gulp'),
 	concat 		= require('gulp-concat'),
 	uglify 		= require('gulp-uglify'),
@@ -16,7 +18,8 @@ gulp.task("concatScripts", function () {
 		.pipe(maps.init())
 		.pipe(concat("app.js"))
 		.pipe(maps.write('./'))
-		.pipe(gulp.dest("js"));
+		.pipe(gulp.dest("js"))
+		.pipe(reload({stream:true}));
 });
 
 // Minify JS Scripts - with concatScripts as dependency
@@ -33,32 +36,49 @@ gulp.task('compileSass', function() {
 		.pipe(maps.init())
 			.pipe(sass())
 		.pipe(maps.write('./'))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./'))
+		.pipe(reload({stream:true}));
 });
 
 
-// Watch Files - Sass and JS files
-gulp.task('watchFiles', function(){
+// Proxy Server and Wach scss/php/js
+gulp.task('serve', ['compileSass'], function(){
+	browserSync({
+		proxy: "www.jp-gen-starter-bp.dev",
+		notify: false
+	});
 	gulp.watch('scss/**/*.scss', ['compileSass']);
-	gulp.watch('js/main.js', ['concatScripts']);
-})
+	gulp.watch('js/**/*.js', ['concatScripts']);
+	gulp.watch('**/*.php').on('change', reload);
+});
+
+// Default Dev Task
+gulp.task('default', ['serve']);
+
+
+
+// Production ========================
+
+
+
 
 // Clean Tast
 gulp.task('clean', function(){
-	del(['dist', 'css/style.css*', 'js/app*.js*']);
+	del(['dist', 'css/style.css*', 'js/app*.js*' ]);
 });
-
 
 // Build Task
 gulp.task('build', ['minifyScripts', 'compileSass'], function() {
-	return gulp.src(["css/style.css", "js/app.min.js", "images/**"])
+	return gulp.src([
+			"style.css", 
+			"style.css.map",
+			"js/app.min.js", 
+			"js/app.js.map", 
+			"images/**"])
 	.pipe(gulp.dest('dist'), {base: './'});
 });
 
-// Serve
-gulp.task('serve', ['watchFiles']);
-
-// Default Task
-gulp.task("default", ["clean"], function() {
+// Production Build Task
+gulp.task('production', ["clean"], function() {
 	gulp.start('build');
 });

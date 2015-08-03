@@ -93,7 +93,7 @@ remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
 // Reposition the primary nav
 remove_action('genesis_after_header', 'genesis_do_nav');
-add_action('genesis_header', 'genesis_do_nav', 5);
+add_action('genesis_header', 'genesis_do_nav', 10);
 
 // //* Unregster Primary, Secondary Sidebar, and Header-Right Widget area
 // 	unregister_sidebar( 'sidebar' );

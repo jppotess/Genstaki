@@ -27,13 +27,7 @@ input[type="radio"] {
 	width: auto;
 }
 
-::-moz-placeholder {
-	color: $black-light;
-	font-weight: $font-weight--light;
-	opacity: 1;
-}
-
-::-webkit-input-placeholder {
+@include placeholder {
 	color: $black-light;
 	font-weight: $font-weight--light;
 }

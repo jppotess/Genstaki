@@ -9,6 +9,14 @@ Template Version: 0.0.1
 Tags: mobile-first, responsive, genesis
 */
 @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+html {
+  box-sizing: border-box; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
 .author-box:after,
 .clearfix:after,
 .entry:after,
@@ -1170,12 +1178,19 @@ input[type="image"],
 input[type="radio"] {
   width: auto; }
 
+::-webkit-input-placeholder {
+  color: #333;
+  font-weight: 300; }
+
 ::-moz-placeholder {
   color: #333;
-  font-weight: 300;
-  opacity: 1; }
+  font-weight: 300; }
 
-::-webkit-input-placeholder {
+:-moz-placeholder {
+  color: #333;
+  font-weight: 300; }
+
+:-ms-input-placeholder {
   color: #333;
   font-weight: 300; }
 

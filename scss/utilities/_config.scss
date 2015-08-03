@@ -76,6 +76,10 @@ $h-text			: $black;
 $base-font-size : 16px;
 $base-line		: 24px;
 $letter-space	: 1px;
+$base-line-height: 1.5;
+
+// Other
+$base-spacing: $base-line-height * 1em;
 
 // Border
 $base-border-color: lighten($gray, 12%);

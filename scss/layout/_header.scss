@@ -24,10 +24,9 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
-	min-height: 160px;
+	background-color: $color-primary;
 	& .wrap {
-		padding: 40px 0;
+		padding: 20px 0;
 	}
 	& .widget-area {
 		float: right;
@@ -41,24 +40,27 @@
 
 .title-area {
 	float: left;
-	padding: 10px 0;
+	padding: 20px 0;
 	width: 360px;
 }
 
 .header-full-width .title-area {
-	width: 100%;
+	width: auto;
+	margin-left: 40px;
 }
 
 .site-title {
-	font-size: em(32px);
+	font-size: em(28px);
 	font-weight: $font-weight--medium;
 	line-height: 1.2;
 	margin-bottom: 0;
-}
-
-.site-title a,
-.site-title a:hover {
-	color: $black-light;
+	& a {
+		color: $white;
+		font-weight: $font-weight--medium;
+		&:hover {
+			color: $white;
+		}
+	}
 }
 
 .header-image .site-title > a {
@@ -192,11 +194,19 @@
 --------------------------------------------- */
 
 .nav-primary {
-	background-color: $black-light;
+	background-color: transparent;
+	float: right;
+	& .wrap {
+		padding: 0px;
+		margin-right: 40px;
+	}
 }
+
 
 .nav-primary .genesis-nav-menu a {
 	color: $white;
+	font-weight: $font-weight--bold;
+	font-size: em(18px);
 }
 
 .nav-primary .genesis-nav-menu .sub-menu a {

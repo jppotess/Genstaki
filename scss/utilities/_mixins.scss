@@ -82,3 +82,47 @@
 	-o-transition 		: all $speed ease-in-out;
 	transition 			: all $speed ease-in-out;
 }
+
+
+// Lists
+
+@mixin horizontal() {
+  li {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    &:last-child { margin-right: 0; }
+  }
+}
+
+@mixin default-ul() {
+  list-style-type: disc;
+  margin-bottom: $base-spacing;
+  padding-left: $base-spacing;
+}
+
+@mixin default-ol() {
+  list-style-type: decimal;
+  margin-bottom: $base-spacing;
+  padding-left: $base-spacing;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: $base-spacing;
+
+  &%default-ul {
+    @include default-ul;
+  }
+
+  &%default-ol {
+    @include default-ol;
+  }
+
+  &%horizontal {
+    @include horizontal;
+  }
+}

@@ -43,6 +43,13 @@ Tags: mobile-first, responsive, genesis
   display: table;
   clear: both; }
 
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5em; }
+
 button,
 .button, input[type="button"],
 input[type="reset"],
@@ -621,7 +628,8 @@ img {
   width: 580px; }
 
 .full-width-content .content {
-  width: 100%; }
+  width: 100%;
+  padding: 0px 40px; }
 
 .site-header .search-form {
   overflow: hidden;
@@ -641,10 +649,9 @@ img {
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
 .site-header {
-  background-color: #fff;
-  min-height: 160px; }
+  background-color: #1A3747; }
   .site-header .wrap {
-    padding: 40px 0; }
+    padding: 20px 0; }
   .site-header .widget-area {
     float: right;
     text-align: right;
@@ -654,21 +661,23 @@ img {
 --------------------------------------------- */
 .title-area {
   float: left;
-  padding: 10px 0;
+  padding: 20px 0;
   width: 360px; }
 
 .header-full-width .title-area {
-  width: 100%; }
+  width: auto;
+  margin-left: 40px; }
 
 .site-title {
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 0; }
-
-.site-title a,
-.site-title a:hover {
-  color: #333; }
+  .site-title a {
+    color: #fff;
+    font-weight: 400; }
+    .site-title a:hover {
+      color: #fff; }
 
 .header-image .site-title > a {
   background: url(images/logo.png) no-repeat left;
@@ -776,10 +785,16 @@ img {
 /* ## Primary Navigation
 --------------------------------------------- */
 .nav-primary {
-  background-color: #333; }
+  background-color: transparent;
+  float: right; }
+  .nav-primary .wrap {
+    padding: 0px;
+    margin-right: 40px; }
 
 .nav-primary .genesis-nav-menu a {
-  color: #fff; }
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.125em; }
 
 .nav-primary .genesis-nav-menu .sub-menu a {
   color: #333; }

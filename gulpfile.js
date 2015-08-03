@@ -34,7 +34,7 @@ gulp.task("minifyScripts", ['concatScripts'], function(){
 gulp.task('compileSass', function() {
 	return gulp.src('scss/style.scss')
 		.pipe(maps.init())
-			.pipe(sass())
+			.pipe(sass().on('error', sass.logError))
 		.pipe(maps.write('./'))
 		.pipe(gulp.dest('./'))
 		.pipe(reload({stream:true}));

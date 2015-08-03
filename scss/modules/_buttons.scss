@@ -16,7 +16,8 @@
 	transition: opacity .5;
 	display: block;
 	cursor: pointer;
-	&:hover {
+	&:hover,
+	&:focus {
 		opacity:.75;
 	}
 	&:active {

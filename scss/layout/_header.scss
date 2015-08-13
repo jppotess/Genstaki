@@ -102,7 +102,7 @@
 .genesis-nav-menu a {
 	color: $black-light;
 	display: block;
-	padding: 30px 24px;
+	padding: 30px 16px;
 }
 
 .genesis-nav-menu a:hover,
@@ -222,8 +222,178 @@
 /* ## Secondary Navigation
 --------------------------------------------- */
 
-.nav-secondary {
-	background-color: $white;
+nav.nav-secondary {
+	display: none;
+	background-color: $color-primary;
+    left: 0;
+    top: 81px;
+    z-index: 999999999999;
+    overflow: hidden;
+	& .menu-item {
+		width: 100%;
+		text-align: center;
+		border-top: 1px black solid;
+		& a {
+			color: white;
+		}
+	}
+	& .menu-item:hover {
+		background-color: darken($color-primary, 5%);
+		@include transition(300ms);
+	}
 }
 
+
+//================================================================
+//==================================================================
+/* ## Responsive header menu button
+--------------------------------------------- */
+
+
+@media screen and (max-width: 1024px) {
+
+
+//=============================================================
+//
+//	Menu Button Styling
+//=============================================================
+	.menuButton {
+		display: block;
+	}
+
+	.site-header .menuButton span, 
+	.site-header .menuButton:before, 
+	.site-header .menuButton:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 5px;
+		background: $white;
+		@include transition(400ms);
+	}
+
+	.site-header a.menuButton {
+		&:before { 
+			top: 0;
+		}
+		&.open:before {
+			-webkit-transform: rotate(-45deg);
+	    	-moz-transform: rotate(-45deg);
+	    	-o-transform: rotate(-45deg);
+	    	-ms-transform: rotate(-45deg);
+	    	transform: rotate(-45deg);
+	    	top: 11px;
+		}
+
+	}
+
+	.site-header a.menuButton {
+		& span {
+			top: 50%;
+		    -webkit-transform: translate(0%, -50%);
+		    -moz-transform: translate(0%, -50%);
+		    -o-transform: translate(0%, -50%);
+		    -ms-transform: translate(0%, -50%);
+		    transform: translate(0%, -50%);
+		    opacity: 1;
+		}
+		&.open span {
+			opacity: 0;
+		}
+	}
+
+	.site-header a.menuButton {
+		&:after {
+			bottom:0;
+		}
+		&.open:after {
+		    -webkit-transform: rotate(45deg);
+		    -moz-transform: rotate(45deg);
+		    -o-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    transform: rotate(45deg);
+		    bottom: 14px;
+		}
+	}
+
+
+	a.menuButton {
+		width: 45px;
+		height: 30px;
+		position: absolute;
+		top: 56px;
+		right: 50px;
+		display: block;
+		-webkit-transform: translate(0%, -50%);
+		-moz-transform: translate(0%, -50%);
+		-o-transform: translate(0%, -50%);
+		-ms-transform: translate(0%, -50%);
+		transform: translate(0%, -50%);
+
+	}
+
+
+	// Main navigatin hidden
+	nav.nav-primary {
+		display: none;
+	}
+
+
+
+
+		@media screen and (max-width: 600px) {
+			.title-area {
+				padding-top: 16px;
+				width: 320px;
+				& .site-title {
+					font-size: 29px;
+				}
+			}
+		}
+		@media screen and (max-width: 500px) {
+			.title-area {
+				width: 300px;
+				& .site-title {
+					font-size: 25px;
+					text-align: left;
+					margin-left: 40px;
+					margin-top: 2px;
+				}
+			}
+		}
+		@media screen and (max-width: 350px) {
+			.title-area {
+				width: 260px;
+				& .site-title {
+					font-size: 20px;
+					text-align: left;
+					margin-left: 25px;
+					margin-top: 6px;
+				}
+			}
+		}
+		// @media screen and (max-width 376px){
+		// 	.title-area {
+		// 		& .site-title {
+		// 			font-size: 25px;
+		// 			text-align: left;
+		// 			margin-left: 40px;
+		// 			margin-top: 2px;
+		// 		}
+		// 	}
+		// }
+		// @media screen and (max-width 320px){
+		// 	.title-area {
+		// 		& .site-title {
+		// 			font-size: 20px;
+		// 			text-align: left;
+		// 			margin-left: 25px;
+		// 			margin-top: 6px;
+		// 		}
+		// 	}
+		// }
+
+
+
+}
 

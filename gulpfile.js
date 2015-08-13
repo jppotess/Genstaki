@@ -52,6 +52,8 @@ gulp.task('serve', ['compileSass'], function(){
 	gulp.watch('**/*.php').on('change', reload);
 });
 
+
+
 // Default Dev Task
 gulp.task('default', ['serve']);
 

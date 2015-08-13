@@ -2,6 +2,20 @@
 jQuery(document).ready(function($) {
 
 
+// Make Menu responsive with icon
+
+  // Add a.menuButton icon button area to widget-header
+    $('<a href="#" class="menuButton"><span></span></a>').insertBefore( 'nav.nav-primary' );
+
+  // add open class to nav icon
+    $('a.menuButton').click(function() {
+        $( this ).toggleClass( 'open' );
+        // slide toggle display:none to make visible
+
+        $('.nav-secondary').slideToggle( 'slow');
+
+    });
+
 
 //************************************
 // 

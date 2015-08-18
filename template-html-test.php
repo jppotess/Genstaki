@@ -7,8 +7,8 @@ Template Name: HTML Test
 */
 
 //* Add landing body class to the head
-add_filter('body_class', 'mtd_add_body_class');
-function mtd_add_body_class($classes) {
+add_filter('body_class', 'jp_add_body_class');
+function jp_add_body_class($classes) {
 
     $classes[] = 'html-test';
     return $classes;
@@ -16,8 +16,8 @@ function mtd_add_body_class($classes) {
 }
 
 // Add our custom loop
-add_action('genesis_loop', 'mtd_html_test_loop');
-function mtd_html_test_loop() {
+add_action('genesis_loop', 'jp_html_test_loop');
+function jp_html_test_loop() {
 ?>
 
     <p>The purpose of this HTML is to help determine what default settings and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>

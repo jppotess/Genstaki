@@ -41,18 +41,17 @@
 .title-area {
 	float: left;
 	padding: 20px 0;
-	width: 360px;
 }
 
 .header-full-width .title-area {
 	width: auto;
-	margin-left: 40px;
 }
 
 .site-title {
-	font-size: em(28px);
+	font-size: em(22px);
+//	font-size: em(28px);
 	font-weight: $font-weight--medium;
-	line-height: 1.2;
+	line-height: 1;
 	margin-bottom: 0;
 	& a {
 		color: $white;
@@ -61,6 +60,14 @@
 			color: $white;
 		}
 	}
+	@include media($phablet){
+		font-size: em(28px);
+		font-weight: $font-weight--bold;
+	}
+	@include media($phablet){
+		line-height: 1.2;
+	}
+
 }
 
 .header-image .site-title > a {
@@ -198,7 +205,7 @@
 	float: right;
 	& .wrap {
 		padding: 0px;
-		margin-right: 40px;
+
 	}
 }
 
@@ -277,11 +284,7 @@ nav.nav-secondary {
 			top: 0;
 		}
 		&.open:before {
-			-webkit-transform: rotate(-45deg);
-	    	-moz-transform: rotate(-45deg);
-	    	-o-transform: rotate(-45deg);
-	    	-ms-transform: rotate(-45deg);
-	    	transform: rotate(-45deg);
+	    	@include transform(rotate(-45deg));
 	    	top: 11px;
 		}
 
@@ -290,11 +293,7 @@ nav.nav-secondary {
 	.site-header a.menuButton {
 		& span {
 			top: 50%;
-		    -webkit-transform: translate(0%, -50%);
-		    -moz-transform: translate(0%, -50%);
-		    -o-transform: translate(0%, -50%);
-		    -ms-transform: translate(0%, -50%);
-		    transform: translate(0%, -50%);
+		    @include transform (translate(0%, -50%));
 		    opacity: 1;
 		}
 		&.open span {
@@ -307,11 +306,7 @@ nav.nav-secondary {
 			bottom:0;
 		}
 		&.open:after {
-		    -webkit-transform: rotate(45deg);
-		    -moz-transform: rotate(45deg);
-		    -o-transform: rotate(45deg);
-		    -ms-transform: rotate(45deg);
-		    transform: rotate(45deg);
+		    @include transform(rotate(45deg));
 		    bottom: 14px;
 		}
 	}
@@ -321,14 +316,19 @@ nav.nav-secondary {
 		width: 45px;
 		height: 30px;
 		position: absolute;
-		top: 56px;
-		right: 50px;
+		top: 36px;
+		//one shift width for column percent
+		right: 6.44172%;
 		display: block;
-		-webkit-transform: translate(0%, -50%);
-		-moz-transform: translate(0%, -50%);
-		-o-transform: translate(0%, -50%);
-		-ms-transform: translate(0%, -50%);
-		transform: translate(0%, -50%);
+		@include transform(scale(0) rotate(-50%));
+		@include shift(1);
+
+		@include media($phablet){
+			top:40px;
+		}
+		@include media($desktop){
+			@include shift(11);
+		}
 
 	}
 
@@ -341,39 +341,18 @@ nav.nav-secondary {
 
 
 
-		@media screen and (max-width: 600px) {
-			.title-area {
-				padding-top: 16px;
-				width: 320px;
-				& .site-title {
-					font-size: 29px;
-				}
-			}
-		}
-		@media screen and (max-width: 500px) {
-			.title-area {
-				width: 300px;
-				& .site-title {
-					font-size: 25px;
-					text-align: left;
-					margin-left: 40px;
-					margin-top: 2px;
-				}
-			}
-		}
-		@media screen and (max-width: 350px) {
-			.title-area {
-				width: 260px;
-				& .site-title {
-					font-size: 20px;
-					text-align: left;
-					margin-left: 25px;
-					margin-top: 6px;
-				}
-			}
-		}
-		// @media screen and (max-width 376px){
+		// @media screen and (max-width: 600px) {
 		// 	.title-area {
+		// 		padding-top: 16px;
+		// 		width: 320px;
+		// 		& .site-title {
+		// 			font-size: 29px;
+		// 		}
+		// 	}
+		// }
+		// @media screen and (max-width: 500px) {
+		// 	.title-area {
+		// 		width: 300px;
 		// 		& .site-title {
 		// 			font-size: 25px;
 		// 			text-align: left;
@@ -382,8 +361,9 @@ nav.nav-secondary {
 		// 		}
 		// 	}
 		// }
-		// @media screen and (max-width 320px){
+		// @media screen and (max-width: 350px) {
 		// 	.title-area {
+		// 		width: 260px;
 		// 		& .site-title {
 		// 			font-size: 20px;
 		// 			text-align: left;
@@ -392,6 +372,26 @@ nav.nav-secondary {
 		// 		}
 		// 	}
 		// }
+		// // @media screen and (max-width 376px){
+		// // 	.title-area {
+		// // 		& .site-title {
+		// // 			font-size: 25px;
+		// // 			text-align: left;
+		// // 			margin-left: 40px;
+		// // 			margin-top: 2px;
+		// // 		}
+		// // 	}
+		// // }
+		// // @media screen and (max-width 320px){
+		// // 	.title-area {
+		// // 		& .site-title {
+		// // 			font-size: 20px;
+		// // 			text-align: left;
+		// // 			margin-left: 25px;
+		// // 			margin-top: 6px;
+		// // 		}
+		// // 	}
+		// // }
 
 
 

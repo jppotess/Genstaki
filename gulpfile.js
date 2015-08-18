@@ -64,10 +64,10 @@ gulp.task('default', ['serve']);
 
 
 
-// Clean Tast
-gulp.task('clean', function(){
-	del(['dist', 'css/style.css*', 'js/app*.js*' ]);
-});
+// // Clean Tast
+// gulp.task('clean', function(){
+// 	del(['dist', 'css/style.css*', 'js/app*.js*' ]);
+// });
 
 // Build Task
 gulp.task('build', ['minifyScripts', 'compileSass'], function() {

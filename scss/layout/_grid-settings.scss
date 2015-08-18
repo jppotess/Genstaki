@@ -1,0 +1,25 @@
+// ==========================================================
+// Grid Settings for Neat
+// ==========================================================
+
+@import "../neat/neat-helpers";
+
+// ========================
+// Neat Grid and BreakPoints
+// =========================
+$visual-grid-color: #eaa;
+$visual-grid: true !default;
+
+// Neat Overrides
+$column: 44px;
+$gutter: 40px;
+$grid-columns: 16;
+$max-width: 1200px;
+
+
+// Breakpoints for include
+// Default css is for mobile <= 480px
+$phablet: new-breakpoint(min-width 481px, 16);
+$tablet: new-breakpoint(min-width 768px, 16);
+$desktop: new-breakpoint(min-width 1024px, 16);
+

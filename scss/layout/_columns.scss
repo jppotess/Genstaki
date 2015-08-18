@@ -2,46 +2,63 @@
 // Columns
 // ==========================================================
 
-/* ## Column Widths and Positions
---------------------------------------------- */
-
-/* ### Wrapping div for .content and .sidebar-primary */
-
-.content-sidebar-sidebar .content-sidebar-wrap,
-.sidebar-content-sidebar .content-sidebar-wrap,
-.sidebar-sidebar-content .content-sidebar-wrap {
-	width: 980px;
+// Outer container ($max-width gets applied to this)
+.site-container {
+	@include outer-container;
 }
 
-.content-sidebar-sidebar .content-sidebar-wrap {
-	float: left;
+
+// Clearfix for structural elements
+.site-header,
+.nav-primary,
+.nav-secondary,
+.site-inner,
+.footer-widgets,
+.site-footer {
+	@include clearfix;
 }
 
-.sidebar-content-sidebar .content-sidebar-wrap,
-.sidebar-sidebar-content .content-sidebar-wrap {
-	float: right;
+// Padding for structural elements
+.site-header > .wrap,
+.nav-secondary > .wrap,
+.site-inner > .content-sidebar-wrap,
+.footer-widgets > .wrap,
+.site-footer > .wrap {
+	@include shift(1);
+	@include span-columns(14);
 }
+
+//====================================================
 
 /* ### Content */
+	
+.content-sidebar-wrap {
+	@include span-columns(16);
+}
 
 .content {
-	float: right;
-	width: 800px;
+	@include shift(1);
+	@include span-columns(14);
+
+	@include media($desktop) {
+		@include shift(1);
+		@include span-columns(10);
+	}
 }
 
-.content-sidebar .content,
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content {
-	float: left;
+.sidebar-primary{
+	@include shift(1);
+	@include span-columns(14);
+
+	@include media($desktop) {
+		@include shift(0);
+		@include span-columns(4);
+	}
 }
 
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content,
-.sidebar-sidebar-content .content {
-	width: 580px;
-}
+
 
 .full-width-content .content {
-	width: 100%;
-	padding: 0px 40px;
+	@include shift(1);
+	@include span-columns(14);
 }

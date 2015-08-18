@@ -34,12 +34,12 @@ function jp_scripts_and_styles() {
 //* Add HTML5 support
 add_theme_support( 'html5' );
 
-//* Add viewport meta tag for mobile browsers
-add_theme_support( 'genesis-responsive-viewport' );
+// //* Add viewport meta tag for mobile browsers
+// add_theme_support( 'genesis-responsive-viewport' );
 
 //* Remove genesis default templates
-add_filter( 'theme_page_templates', 'be_remove_genesis_page_templates' );
-function be_remove_genesis_page_templates( $page_templates ) {
+add_filter( 'theme_page_templates', 'jp_remove_genesis_page_templates' );
+function jp_remove_genesis_page_templates( $page_templates ) {
 	unset( $page_templates['page_archive.php'] );
 	unset( $page_templates['page_blog.php'] );
 	return $page_templates;

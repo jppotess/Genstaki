@@ -1,0 +1,53 @@
+// Outer container ($max-width gets applied to this)
+/**
+ * Layouts - Default
+ */
+
+.site-container {
+  @include outer-container;
+}
+
+// Clearfix for structural elements
+.site-header,
+.nav-primary,
+.nav-secondary,
+.site-inner,
+.footer-widgets,
+.site-footer {
+  @include clearfix; 
+}
+
+// Padding for structural elements
+.site-header > .wrap,
+.nav-secondary > .wrap,
+.site-inner > .content-sidebar-wrap,
+.footer-widgets > .wrap,
+.site-footer > .wrap {
+  @include shift(1);
+  @include span-columns(10);
+}
+
+// Screen reader visibility
+.screen-reader-text,
+.screen-reader-shortcut {
+  top: -1000em;
+  position: absolute;
+}
+
+.screen-reader-shortcut:focus {
+  display: block;
+  height: auto;
+  left: 6px;
+  top: 7px;
+  width: auto;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 23px 14px;
+  background: #f1f1f1;
+  color: #21759b;
+  z-index: 100000;
+  line-height: normal;
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+  box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+}

@@ -22,29 +22,29 @@ define('CHILD_THEME_VERSION', '0.0.1');
 add_action( 'wp_enqueue_scripts', 'jp_scripts_and_styles', 15);
 function jp_scripts_and_styles() {
 
-	// Styles
-	wp_enqueue_style( 'site-styles', get_stylesheet_directory_uri() . '/css/style.css', array(), CHILD_THEME_VERSION );
- 	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION); 
+    // Styles
+    wp_enqueue_style( 'site-styles', get_stylesheet_directory_uri() . '/dist/css/site.css', array(), CHILD_THEME_VERSION );
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION); 
 
-	// Scripts
-	wp_enqueue_script('jquery');
-	wp_enqueue_script('site-js', get_stylesheet_directory_uri() . '/js/site.js', array('jquery'), '', true);
+    // Scripts
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('site-js', get_stylesheet_directory_uri() . '/dist/js/site.js', array('jquery'), '', true);
 }
 
 //* Add HTML5 support
 add_theme_support( 'html5' );
 
-// //* Add viewport meta tag for mobile browsers
-// add_theme_support( 'genesis-responsive-viewport' );
+//* Add viewport meta tag for mobile browsers
+add_theme_support( 'genesis-responsive-viewport' );
 
 //* Remove genesis default templates
-add_filter( 'theme_page_templates', 'jp_remove_genesis_page_templates' );
-function jp_remove_genesis_page_templates( $page_templates ) {
-	unset( $page_templates['page_archive.php'] );
-	unset( $page_templates['page_blog.php'] );
-	return $page_templates;
+add_filter( 'theme_page_templates', 'be_remove_genesis_page_templates' );
+function be_remove_genesis_page_templates( $page_templates ) {
+    unset( $page_templates['page_archive.php'] );
+    unset( $page_templates['page_blog.php'] );
+    return $page_templates;
 }
-
+ 
 
 //* Remove site layouts
 genesis_unregister_layout('content-sidebar-sidebar');
@@ -56,12 +56,12 @@ genesis_set_default_layout('full-width-content');
 
 //* Add support for structural wraps
 add_theme_support( 'genesis-structural-wraps', array(
-	'header',
-	'nav',
-	'subnav',
-	'site-inner',
-	'footer-widgets',
-	'footer'
+    'header',
+    'nav',
+    'subnav',
+    'site-inner',
+    'footer-widgets',
+    'footer'
 ) );
 
 //* Set preferred Genesis settings
@@ -96,13 +96,13 @@ remove_action('genesis_after_header', 'genesis_do_nav');
 add_action('genesis_header', 'genesis_do_nav', 10);
 
 // //* Unregster Primary, Secondary Sidebar, and Header-Right Widget area
-// 	unregister_sidebar( 'sidebar' );
-// 	unregister_sidebar( 'sidebar-alt');	
-// 	unregister_sidebar( 'header-right');
+//  unregister_sidebar( 'sidebar' );
+//  unregister_sidebar( 'sidebar-alt'); 
+//  unregister_sidebar( 'header-right');
 
 // //* Remove Primary and Secondary Sidebar
-// 	remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-// 	remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
+//  remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+//  remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
 
 
 
@@ -116,7 +116,7 @@ function mobile_first_remove_comment_form_allowed_tags($defaults) {
 //* Modify the length of post excerpts
 add_filter( 'excerpt_length', 'sp_excerpt_length' );
 function sp_excerpt_length( $length ) {
-	return 40; // pull first 40 words
+    return 40; // pull first 40 words
 }
 
 // Remove edit links
@@ -151,11 +151,11 @@ function mobile_first_comments_gravatar($args) {
 //* Customize the credits
 add_filter( 'genesis_footer_creds_text', 'jp_footer_creds_text' );
 function jp_footer_creds_text() {
-	echo '<div class="creds"><p>';
-	echo 'Copyright &copy; ';
-	echo date('Y');
-	echo ' &middot; <a href="http://www.site_name.com">Site Name Owner</a>';
-	echo '</p></div>';
+    echo '<div class="creds"><p>';
+    echo 'Copyright &copy; ';
+    echo date('Y');
+    echo ' &middot; <a href="http://www.site_name.com">Site Name Owner</a>';
+    echo '</p></div>';
 }
 
 

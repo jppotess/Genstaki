@@ -1,3 +1,1 @@
-# jp-gen-starter
-
-Starter child theme for WordPress Genesis framework.
+// This is a README file

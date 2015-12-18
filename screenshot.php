@@ -1,1 +1,0 @@
-Replace this with a screenshot for theme.

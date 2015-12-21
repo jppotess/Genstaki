@@ -19,13 +19,13 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 };
 
 var src = {
-    scss:   '../stylesheets/**/*.scss',
-    cssdist: '../dist/css',
-    js:     '../javascript/**/*.js',
-    jsdist: '../dist/js',    
-    // html:   '../',    
-    templates:    '../templates/**/*.jade',
-    templatesDist: '../'
+    scss:   '/stylesheets/**/*.scss',
+    cssdist: '/dist/css',
+    js:     '/javascript/**/*.js',
+    jsdist: '/dist/js',    
+    // html:   '/',    
+    templates:    '/templates/**/*.jade',
+    templatesDist: '/'
 };
 
 // Proxy Server + watching scss/php/js files

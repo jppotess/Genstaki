@@ -26,11 +26,11 @@ var src = {
     // html:   '../',    
     templates:    '../templates/**/*.jade',
     templatesDist: '../'
-
 };
 
 // Proxy Server + watching scss/php/js files
 gulp.task('serve', ['phpJade', 'sass', 'js'], function() {
+
     browserSync({
         proxy: "www.jp-gen-starter-bp.dev",
         // tunnel: "genesis-bourbon"
@@ -68,7 +68,6 @@ gulp.task('phpJade', function() {
         .pipe(gulp.dest(src.templatesDist))
         .pipe(reload({stream: true}));
 });
-
 
 // JS Hint and Concat Javascript
 gulp.task('js', function () {

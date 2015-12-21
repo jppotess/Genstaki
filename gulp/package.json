@@ -19,6 +19,7 @@
     "browser-sync": "^2.6.5",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
+    "gulp-jade-for-php": "^1.0.9",
     "gulp-jshint": "^1.10.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.0",

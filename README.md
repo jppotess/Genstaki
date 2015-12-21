@@ -1,1 +1,3 @@
-// This is a README file
+#Genstaki
+
+### A WordPress theme based on the Genesis framework

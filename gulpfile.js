@@ -10,15 +10,8 @@ var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var plumber     = require('gulp-plumber');
 var notify      = require('gulp-notify');
-var reload      = browserSync.reload;
 var rename      = require('gulp-rename');
-
-// gulp.task('jade', function() {
-//     return gulp.src('src/templates/**/*.jade')
-//         .pipe(jade()) // pip to jade plugin
-//         .pipe(gulp.dest('app/dist')); // tell gulp our output folder
-// });
-
+var reload      = browserSync.reload;
 var plumberErrorHandler = { errorHandler: notify.onError({
     title: 'Gulp',
     message: 'Error: <%= error.message %>'
@@ -51,38 +44,30 @@ gulp.task('jade', function() {
 //     templatesDist: '/testywesty'
 // };
 
-// // Proxy Server + watching scss/php/js files
-// gulp.task('serve', ['phpJade'], function() {
+// Proxy Server + watching scss/php/js files
+gulp.task('serve', function() {
 
-//     // browserSync({
-//     //     proxy: "www.jp-gen-starter-bp.dev",
-//     //     // tunnel: "genesis-bourbon"
-//     // });
+    // browserSync({
+    //     proxy: "www.jp-gen-starter-bp.dev",
+    //     // tunnel: "genesis-bourbon"
+    // });
 
-//     gulp.watch(src.scss, ['sass']);
-//     gulp.watch(src.js, ['js']);
-//     gulp.watch(src.templates, ['phpJade']);
-//     gulp.watch(src.php).on('change', reload);
-// }); 
+    gulp.watch('src/styles/**/*.sass', ['sass']);
+    // gulp.watch('/src/scripts/**/*.js'.js, ['js']);
+    gulp.watch('src/**/*.jade', ['jade']);
+    // gulp.watch('/src/*.php').on('change', reload);
+}); 
 
 // Compile Sass into CSS
 gulp.task('sass', function() {
-    return gulp.src(src.scss)
+    return gulp.src('src/styles/**/*.sass')
         .pipe(plumber(plumberErrorHandler))
         .pipe(sourcemaps.init())
             .pipe(sass({indentedSyntax: 'true'}))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(src.cssdist))
+        .pipe(gulp.dest('app/dist/css/'))
         .pipe(reload({stream: true}));
 });
-
-// // Compile Jade to HTML
-// gulp.task('jade', function() {
-//   return gulp.src(src.templates)
-//     .pipe(jade({pretty: true}))
-//     .pipe(gulp.dest(src.templatesDist))
-//     .pipe(reload({stream: true}));
-// });
 
 
 
@@ -102,4 +87,4 @@ gulp.task('sass', function() {
  
 // // });
 
-// gulp.task('default', ['serve']);
+gulp.task('default', ['serve']);

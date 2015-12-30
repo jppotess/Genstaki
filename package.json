@@ -20,7 +20,7 @@
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-jade": "^1.1.0",
-    "gulp-jade2php": "^1.0.3",
+    "gulp-jade-php": "^1.1.0",
     "gulp-jshint": "^1.10.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.0",

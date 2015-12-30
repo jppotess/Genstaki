@@ -4,3 +4,9 @@
 
 * Sass
 * Jade
+
+### To Do
+
+* Build Task in serve
+* Clean Task before build/serve
+* concat css final output

@@ -28,7 +28,7 @@ function jp_scripts_and_styles() {
 
     // Scripts
     wp_enqueue_script('jquery');
-    wp_enqueue_script('site-js', get_stylesheet_directory_uri() . '/dist/js/site.js', array('jquery'), '', true);
+    wp_enqueue_script('site-js', get_stylesheet_directory_uri() . '/dist/js/site.min.js', array('jquery'), '', true);
 }
 
 //* Add HTML5 support

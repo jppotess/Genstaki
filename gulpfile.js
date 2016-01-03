@@ -3,6 +3,7 @@ var gulp         = require('gulp');
 
 var sourcemaps   = require('gulp-sourcemaps');
 var sass         = require('gulp-sass');
+var sassConvert  = require('sass-convert');
 var minifyCss    = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -22,8 +23,9 @@ var rename       = require('gulp-rename');
 var browserSync  = require('browser-sync');
 var reload       = browserSync.reload;
 
-// Variable Options
-
+/**
+ * Options Variables
+ */
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
@@ -58,9 +60,24 @@ gulp.task('jade', function() {
         .pipe(reload({stream: true}));
 });
 
+//Convert SCSS to Sass
+gulp.task('scss2sass', function() {
+    return gulp.src('src/styles/utilities/*.scss')
+        .pipe(sassConvert({
+            from: 'scss',
+            to:   'sass',
+        }))
+        .pipe(concat('utilities.sass'))
+        .pipe(gulp.dest('src/styles/'));
+        // .pipe(gulp.dest('src/styles/utilities'));
+})
+
 // Compile Sass into CSS
-gulp.task('sass', function() {
-    return gulp.src('src/styles/**/*.sass')
+gulp.task('sass', ['scss2sass'], function() {
+    return gulp.src([
+            'src/styles/utilities.sass',
+            'src/styles/**/*.+(sass|scss)'
+        ])
         .pipe(plumber(plumberErrorHandler))
         .pipe(sourcemaps.init())
         .pipe(sass({indentedSyntax: 'true'}).on('error', sass.logError))

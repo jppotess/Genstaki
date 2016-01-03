@@ -13,3 +13,5 @@
 * Sass or SCSS - SCSS config files for maps to sass
 * watch task
 * browsersync
+
+* better highlighting for es6 and sass - personal

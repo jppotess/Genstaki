@@ -1,18 +1,32 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var sourcemaps  = require('gulp-sourcemaps');
-var sass        = require('gulp-sass');
-var jade        = require('jade');
-var gulpJade    = require('gulp-jade');
-var phpJade     = require('gulp-jade-php');
-var babel       = require("gulp-babel");
-var jshint      = require('gulp-jshint');
-var concat      = require('gulp-concat');
-var uglify      = require('gulp-uglify');
-var plumber     = require('gulp-plumber');
-var notify      = require('gulp-notify');
-var rename      = require('gulp-rename');
-var reload      = browserSync.reload;
+var gulp         = require('gulp');
+
+
+var sourcemaps   = require('gulp-sourcemaps');
+var sass         = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+
+var jade         = require('jade');
+var gulpJade     = require('gulp-jade');
+var phpJade      = require('gulp-jade-php');
+
+var babel        = require("gulp-babel");
+var jshint       = require('gulp-jshint');
+
+var concat       = require('gulp-concat');
+var uglify       = require('gulp-uglify');
+var plumber      = require('gulp-plumber');
+var notify       = require('gulp-notify');
+var rename       = require('gulp-rename');
+
+var browserSync  = require('browser-sync');
+var reload       = browserSync.reload;
+
+// Variable Options
+
+var autoprefixerOptions = {
+  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+};
+
 var plumberErrorHandler = { errorHandler: notify.onError({
     title: 'Gulp',
     message: 'Error: <%= error.message %>'
@@ -48,8 +62,11 @@ gulp.task('sass', function() {
     return gulp.src('src/styles/**/*.sass')
         .pipe(plumber(plumberErrorHandler))
         .pipe(sourcemaps.init())
-            .pipe(sass({indentedSyntax: 'true'}))
-        .pipe(sourcemaps.write('./'))
+        .pipe(sass({indentedSyntax: 'true'}).on('error', sass.logError))
+        .pipe(concat('styles.min.css'))
+        .pipe(uglify())
+        .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(sourcemaps.write('./'))        
         .pipe(gulp.dest('app/dist/css/'))
         .pipe(reload({stream: true}));
 });

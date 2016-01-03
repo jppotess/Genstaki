@@ -4,26 +4,21 @@
 
 // Clearfix
 
-%clearfix {
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
+%clearfix 
+	&:after 
+		content: ""
+		display: table
+		clear: both
 
-%clearfixb {
-	&:before {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
+%clearfixb 
+	&:before 
+		content: ""
+		display: table
+		clear: both
 
-%pseudos {
-	display: block;
-	content: '';
-	position: aboslute;
-}
+%pseudos
+	display: block
+	content: ''
+	position: aboslute
 
 

@@ -12,5 +12,4 @@
 * Clean Task
 * Sass or SCSS
 * watch task
-* autoreload
-*
+* autoreload*

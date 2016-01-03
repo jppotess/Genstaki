@@ -12,11 +12,7 @@ $font-family--heading	: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 
 // Font Weights
-$font-weight--thin		: 100;
-$font-weight--light		: 300;
-$font-weight--medium	: 400;
-$font-weight--bold		: 700;
-$font-weight--ultra-bold: 900;
+
 
 // Descriptive Base Colors
 
@@ -81,21 +77,12 @@ $base-line-height: 1.5;
 // Other
 $base-spacing: $base-line-height * 1em;
 
-// Border
-$base-border-color: lighten($gray, 12%);
-$base-border: 1px solid $base-border-color;
-
-// Border radius
-
-$br--default	: .4em;
-$br--round		: 50%;
-
 // Path to Assets
 
 $path--rel		: "../images/img";
 
-// Breakpoints
+// // Breakpoints
 
-$brkpoint-sm	: 1px;
-$brkpoint-md	: 768px;
-$brkpoint-lg	: 1100px;
+// $brkpoint-sm	: 1px;
+// $brkpoint-md	: 768px;
+// $brkpoint-lg	: 1100px;

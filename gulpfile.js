@@ -64,12 +64,12 @@ gulp.task('jade', function() {
 gulp.task('scss2sass', function() {
     return gulp.src('src/styles/utilities/*.scss')
         .pipe(sassConvert({
-            from: 'scss',
-            to:   'sass',
+            from: 'sass',
+            to:   'scss',
         }))
-        .pipe(concat('utilities.sass'))
-        .pipe(gulp.dest('src/styles/'));
-        // .pipe(gulp.dest('src/styles/utilities'));
+        // .pipe(concat('utilities.sass'))
+        // .pipe(gulp.dest('src/styles/'));
+        .pipe(gulp.dest('src/styles/utilities'));
 })
 
 // Compile Sass into CSS

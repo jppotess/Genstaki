@@ -3,6 +3,7 @@ var gulp         = require('gulp');
 
 var sourcemaps   = require('gulp-sourcemaps');
 var sass         = require('gulp-sass');
+var minifyCss    = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 
 var jade         = require('jade');
@@ -64,7 +65,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass({indentedSyntax: 'true'}).on('error', sass.logError))
         .pipe(concat('styles.min.css'))
-        .pipe(uglify())
+        // .pipe(minifyCss())
         .pipe(autoprefixer(autoprefixerOptions))
         .pipe(sourcemaps.write('./'))        
         .pipe(gulp.dest('app/dist/css/'))
@@ -81,8 +82,8 @@ gulp.task("babel", function() {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('site.min.js'))
-        .pipe(uglify())
+        .pipe(concat('scripts.min.js'))
+        // .pipe(uglify())
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest("app/dist/js/"))
         .pipe(reload({stream:true}));

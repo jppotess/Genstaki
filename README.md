@@ -1,12 +1,16 @@
 #Genstaki
 
-### A WordPress theme based on the Genesis framework
+### A WordPress starter theme and development workflow
 
 * Sass
 * Jade
+* ES6 using Babel
 
 ### To Do
 
-* Build Task in serve
-* Clean Task before build/serve
-* concat css final output
+* Build Task
+* Clean Task
+* Sass or SCSS
+* watch task
+* autoreload
+*

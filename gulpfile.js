@@ -55,7 +55,13 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 gulp.task('images', function(){
     return gulp.src('app/dist/images/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
-    .pipe(gulp.dest('app/dist/images'))
+    .pipe(gulp.dest('app/dist/images'));
+})
+
+// Fonts
+gulp.task('fonts', function(){
+    return gulp.src('src/fonts/**/*')
+    .pipe(gulp.dest('app/dist/fonts'));
 })
 
 

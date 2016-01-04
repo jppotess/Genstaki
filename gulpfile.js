@@ -26,9 +26,7 @@ var cache        = require('gulp-cache');
 var imagemin     = require('gulp-imagemin');
 var del          = require('del');
 
-/**
- * Options Variables
- */
+// Options Variables
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
@@ -53,17 +51,16 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 
 // Images
 gulp.task('images', function(){
-    return gulp.src('app/dist/images/**/*.+(png|jpg|gif|svg)')
+    return gulp.src('src/dist/images/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
-    .pipe(gulp.dest('app/dist/images'));
+    .pipe(gulp.dest('app/images'));
 })
 
 // Fonts
 gulp.task('fonts', function(){
     return gulp.src('src/fonts/**/*')
-    .pipe(gulp.dest('app/dist/fonts'));
+    .pipe(gulp.dest('app/fonts'));
 })
-
 
 // Jade to PHP
 gulp.task('jade', function() {
@@ -73,7 +70,7 @@ gulp.task('jade', function() {
             jade: jade,
             pretty: true
         }))
-        .pipe(gulp.dest('app/dist'))
+        .pipe(gulp.dest('app/'))
         .pipe(reload({stream: true}));
 });
 
@@ -102,7 +99,7 @@ gulp.task('sass', function() {
     // .pipe(minifyCss())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(sourcemaps.write('./'))        
-    .pipe(gulp.dest('app/dist/css/'))
+    .pipe(gulp.dest('app/css/'))
     .pipe(reload({stream: true}));
 });
 
@@ -119,7 +116,7 @@ gulp.task("babel", function() {
     .pipe(concat('scripts.min.js'))
     // .pipe(uglify())
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("app/dist/js/"))
+    .pipe(gulp.dest("app/js/"))
     .pipe(reload({stream:true}));
 })
 
@@ -133,7 +130,13 @@ gulp.task('serve', function() {
     gulp.watch('src/styles/**/*.sass', ['sass']);
     gulp.watch('/src/scripts/**/*.js', ['babel']);
     gulp.watch('src/**/*.jade', ['jade']);
-    // gulp.watch('/src/*.php').on('change', reload);
 }); 
+
+// Clean Task
+gulp.task('clean', function() {
+    del('app/dist');
+})
+
+
 
 gulp.task('default', ['serve']);

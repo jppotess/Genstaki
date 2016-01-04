@@ -51,12 +51,13 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 //     templatesDist: '/testywesty'
 // };
 
-
+// Images
 gulp.task('images', function(){
     return gulp.src('app/dist/images/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
     .pipe(gulp.dest('app/dist/images'))
 })
+
 
 // Jade to PHP
 gulp.task('jade', function() {

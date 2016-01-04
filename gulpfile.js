@@ -1,4 +1,6 @@
 var gulp         = require('gulp');
+var del          = require('del');
+var runSequence  = require('run-sequence');
 
 var sourcemaps   = require('gulp-sourcemaps');
 var sass         = require('gulp-sass');
@@ -24,7 +26,7 @@ var reload       = browserSync.reload;
 
 var cache        = require('gulp-cache');
 var imagemin     = require('gulp-imagemin');
-var del          = require('del');
+
 
 // Options Variables
 var autoprefixerOptions = {
@@ -51,7 +53,7 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 
 // Images
 gulp.task('images', function(){
-    return gulp.src('src/dist/images/**/*.+(png|jpg|gif|svg)')
+    return gulp.src('src/images/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
     .pipe(gulp.dest('app/images'));
 })
@@ -121,7 +123,7 @@ gulp.task("babel", function() {
 })
 
 // Proxy Server + watch PHP sass and js
-gulp.task('serve', function() {
+gulp.task('serve',  ['build'], function() {
 
     // browserSync({
     //     proxy: "www.proxy.dev",
@@ -130,13 +132,26 @@ gulp.task('serve', function() {
     gulp.watch('src/styles/**/*.sass', ['sass']);
     gulp.watch('/src/scripts/**/*.js', ['babel']);
     gulp.watch('src/**/*.jade', ['jade']);
-}); 
-
-// Clean Task
-gulp.task('clean', function() {
-    del('app/dist');
 })
 
+// Clean Task
+gulp.task('clean', function(callback) {
+    del('app');
+    return cache.clearAll(callback);
+})
+
+// Clean Task - excpt images
+gulp.task('clean:dist', function(callback){
+    del(['app/**/*', '!app/images', '!app/images/**/*'], callback)
+})
+
+// Build Task
+gulp.task('build', function(callback){
+    runSequence('clean:dist',
+        ['jade', 'sass', 'babel', 'images', 'fonts'],
+        callback
+    )
+})
 
 
 gulp.task('default', ['serve']);

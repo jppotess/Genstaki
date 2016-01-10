@@ -1,14 +1,12 @@
-- var user = { description: 'foo bar baz' }
-- var authorised = false
-#user
-  if user.description
-    h2 Description
-    p.description= user.description
-  else if authorised
-    h2 Description
-    p.description.
-      User has no description,
-      why not add one...
-  else
-    h1 Description
-    p.description User has no description
+.container1
+  - if (1>2) 
+    - echo "hello";
+  -else 
+    = "shwocka Slfocka Slame";
+    .container1__box
+      = "party";
+    .container1__box2
+      -if (1 ==1) 
+        .hello
+.container2
+  = 1;

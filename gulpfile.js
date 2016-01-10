@@ -142,9 +142,9 @@ gulp.task('watch', ['build'], function() {
 // Proxy Server + watch PHP sass and js
 gulp.task('serve',  ['watch'], function() {
 
-    // browserSync({
-    //     proxy: "www.proxy.dev",
-    // });
+    browserSync({
+        proxy: "localhost:3000",
+    });
 })
 
 

@@ -43,10 +43,6 @@ var plumberErrorHandler = { errorHandler: notify.onError({
     })
 };
 
-var path = {
-  globalImports: 'src/lib/_global-imports.scss'
-};
-
 
 // Images
 gulp.task('images', function(){
@@ -55,11 +51,13 @@ gulp.task('images', function(){
     .pipe(gulp.dest('app/images'));
 })
 
+
 // Fonts
 gulp.task('fonts', function(){
     return gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('app/fonts'));
 })
+
 
 // Jade to PHP
 gulp.task('jade', function() {
@@ -73,27 +71,25 @@ gulp.task('jade', function() {
         .pipe(reload({stream: true}));
 });
 
-// // Compile Sass into CSS
-// gulp.task('sass', function() {
-//     // return gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss'])
-    
-//     // return merge(
-//     //     gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss']),
-//     //     gulp.src('src/styles/utilities/_global-imports.scss')
-//     // )
-//     .pipe(plumber(plumberErrorHandler))
-//     .pipe(sourcemaps.init())
-//     .pipe(sass({
-//         includePaths: require('node-bourbon').includePaths,
-//         includePaths: require('node-neat').includePaths
-//     }))
-//     .pipe(concat('styles.min.css'))
-//     // .pipe(minifyCss())
-//     .pipe(autoprefixer(autoprefixerOptions))
-//     .pipe(sourcemaps.write('.'))        
-//     .pipe(gulp.dest('app/css/'))
-//     .pipe(reload({stream: true}));
-// })
+
+// Compile Sass into CSS
+gulp.task('sass', function() {
+    return gulp.src('src/styles/**/*.scss')
+    // return gulp.src('src/styles/site-styles.scss')
+    .pipe(plumber(plumberErrorHandler))
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+        includePaths: require('node-bourbon').includePaths,
+        includePaths: require('node-neat').includePaths
+    }))
+    .pipe(concat('styles.min.css'))
+    // .pipe(minifyCss())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(sourcemaps.write('.'))        
+    .pipe(gulp.dest('app/css/'))
+    .pipe(reload({stream: true}));
+})
+
 
 // Compile Babel es6 to JS
 gulp.task("babel", function() {
@@ -137,7 +133,7 @@ gulp.task('build', function(callback){
 
 // Watch Task
 gulp.task('watch', ['build'], function() {
-    gulp.watch('src/styles/**/*.sass', ['sass']);
+    gulp.watch('src/styles/**/*.scss', ['sass']);
     gulp.watch('src/scripts/**/*.js', ['babel']);
     gulp.watch('src/**/*.jade', ['jade']);
 })

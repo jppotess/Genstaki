@@ -1,0 +1,16 @@
+/**
+ * Main Styles Index
+ */
+
+@import "bourbon";
+@import "neat";
+
+.turkey {
+  .tits {
+    display: none;
+  }
+}
+
+.wazzaaa {
+  @include background-image(linear-gradient(to top, #00ff00, #ff0000));
+}

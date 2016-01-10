@@ -1,0 +1,83 @@
+// ==========================================================
+// Global Config
+// ==========================================================
+
+//Font Stacks
+
+$font-url--google: "http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+
+$font-family--base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family--heading: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Font Weights
+
+// Descriptive Base Colors
+
+$white: #fff;
+$gray: #999999;
+$black: #1b1b1b;
+$black-light: #333;
+
+$nile-blue: #1A3747;
+$shiraz: #870030;
+$razzberry: #EB1551;
+
+$plant: #5BCE73;
+$ocean: #3873CE;
+$carnation: #F85C5C;
+$sunrise: #F89462;
+$light-blue: #84A1CE;
+
+// Color Usage
+
+$color-primary: $nile-blue;
+$color-secondary: $shiraz;
+$color-accent: $razzberry;
+
+// UI Colors
+
+$ui-colors: (
+  default: $ocean, 
+  success: $plant, 
+  error: $carnation, 
+  warning: $sunrise, 
+  info: $light-blue
+  );
+
+// Color Palette Modifiers
+
+$palettes: (
+  gray: (
+    xx-light: lighten($gray, 43%),
+    x-light: lighten($gray, 35%), 
+    light: lighten($gray, 12%), 
+    base: $gray, 
+    dark: darken($gray, 8%), 
+    x-dark: darken($gray, 16%)
+    )
+  );
+
+// Text Color
+
+$p-text: $black-light;
+$h-text: $black;
+
+// Text
+
+$base-font-size: 16px;
+$base-line: 24px;
+$letter-space: 1px;
+$base-line-height: 1.5;
+
+// Other
+$base-spacing: $base-line-height * 1em;
+
+// Path to Assets
+
+$path--rel: "../images/img";
+
+// // Breakpoints
+
+// $brkpoint-sm : 1px;
+// $brkpoint-md : 768px;
+// $brkpoint-lg : 1100px;

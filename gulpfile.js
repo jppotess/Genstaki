@@ -73,42 +73,27 @@ gulp.task('jade', function() {
         .pipe(reload({stream: true}));
 });
 
-// // Convert Sass to SCSS
-// gulp.task('sass2scss', function() {
-//     return gulp.src('src/styles/**/*.scss')
-//         .pipe(sassConvert({
-//             from: 'sass',
-//             to:   'scss',
-//         }))
-//         .pipe(rename(function (path) {
-//             path.extname = ".scss"
-//         }))
-//         .pipe(concat('styles.min.scss'))
-//         // .pipe(minifyCss())
-//         .pipe(gulp.dest('src/styles/'));
-// })
-
-// Compile Sass into CSS
-gulp.task('sass', function() {
-    // return gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss'])
+// // Compile Sass into CSS
+// gulp.task('sass', function() {
+//     // return gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss'])
     
-    return merge(
-        gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss']),
-        gulp.src('src/styles/utilities/_global-imports.scss')
-    )
-    .pipe(plumber(plumberErrorHandler))
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-        includePaths: require('node-bourbon').includePaths,
-        includePaths: require('node-neat').includePaths
-    }))
-    .pipe(concat('styles.min.css'))
-    // .pipe(minifyCss())
-    .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(sourcemaps.write('.'))        
-    .pipe(gulp.dest('app/css/'))
-    .pipe(reload({stream: true}));
-})
+//     // return merge(
+//     //     gulp.src(['src/styles/**/*.scss', '!src/styles/utilities/_global-imports.scss']),
+//     //     gulp.src('src/styles/utilities/_global-imports.scss')
+//     // )
+//     .pipe(plumber(plumberErrorHandler))
+//     .pipe(sourcemaps.init())
+//     .pipe(sass({
+//         includePaths: require('node-bourbon').includePaths,
+//         includePaths: require('node-neat').includePaths
+//     }))
+//     .pipe(concat('styles.min.css'))
+//     // .pipe(minifyCss())
+//     .pipe(autoprefixer(autoprefixerOptions))
+//     .pipe(sourcemaps.write('.'))        
+//     .pipe(gulp.dest('app/css/'))
+//     .pipe(reload({stream: true}));
+// })
 
 // Compile Babel es6 to JS
 gulp.task("babel", function() {

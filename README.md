@@ -5,13 +5,11 @@
 * Sass - indented
 * Jade and Jade for PHP
 * ES6 using Babel
+* browsersync
 
 ### To Do
 
-* Build Task
-* Clean Task
-* Sass or SCSS - SCSS config files for maps to sass
-* watch task
-* browsersync
+* elegant way for normalize/bourbon/neat/ fix compiling issues
+
 
 * better highlighting for es6 and sass - personal

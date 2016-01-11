@@ -13,7 +13,7 @@
 
 This is currently set up for a custom WordPress starter theme, specifically as a [Genesis framework](http://my.studiopress.com/themes/)(by StudioPress) child theme. If you don't want to use Genesis, there are two easy configuration options below.
 
-### Dependencies
+#### Dependencies
 
 * [npm](https://www.npmjs.com/)
 * [Gulp](http://gulpjs.com/)
@@ -37,12 +37,7 @@ CSS folder structure is inteneded for a modular CSS approach. Currently you have
 
 Just remove all the code in the functions.php file except for the following:
 
-```// Child theme (do not remove)
-define('CHILD_THEME_NAME', 'Genstaki');
-define('CHILD_THEME_URL', 'http://www.johnpotessdesign.com/');
-define('CHILD_THEME_VERSION', '0.1.0');
-
-
+```
  //* Enqueue scripts and styles
 add_action( 'wp_enqueue_scripts', 'gs_scripts_and_styles', 15);
 function gs_scripts_and_styles() {
@@ -54,7 +49,8 @@ function gs_scripts_and_styles() {
     // Scripts
     wp_enqueue_script('jquery');
     wp_enqueue_script('site-scripts', get_stylesheet_directory_uri() . '/app/js/scripts.min.js', array('jquery'), '', true);
-}```
+}
+```
 
 
 #### To Do

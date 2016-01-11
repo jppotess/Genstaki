@@ -143,7 +143,7 @@ gulp.task('watch', ['build'], function() {
 gulp.task('serve',  ['watch'], function() {
 
     browserSync({
-        // proxy: "localhost:3000",
+        proxy: "yourlocal.dev",
     });
 })
 

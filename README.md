@@ -4,8 +4,8 @@
 
 ##### Features
 
-* [SCSS](http://sass-lang.com/)() for CSS
-* [Jade] for html and php templating
+* [SCSS](http://sass-lang.com/) for CSS
+* [Jade](http://jade-lang.com/) for html and php templating
 * ES6([JavaScript 2015](https://babeljs.io/docs/learn-es2015/)) using Babel to compile
 * [Browsersync](https://www.browsersync.io/)... for browser syncing
 

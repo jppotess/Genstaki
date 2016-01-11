@@ -7,20 +7,18 @@
  * and filters. All the functions themselves are defined inside this setup function. 
  * 
  */ 
- add_action('genesis_setup','child_theme_setup', 15); 
- function child_theme_setup() { 
- /* =====================================================================================*/
-
+ add_action('genesis_setup','gs_child_theme_setup', 15); 
+ function gs_child_theme_setup() { 
 
 // Child theme (do not remove)
 define('CHILD_THEME_NAME', 'Genstaki');
 define('CHILD_THEME_URL', 'http://www.johnpotessdesign.com/');
-define('CHILD_THEME_VERSION', '0.0.1');
+define('CHILD_THEME_VERSION', '0.1.0');
 
 
  //* Enqueue scripts and styles
-add_action( 'wp_enqueue_scripts', 'jp_scripts_and_styles', 15);
-function jp_scripts_and_styles() {
+add_action( 'wp_enqueue_scripts', 'gs_scripts_and_styles', 15);
+function gs_scripts_and_styles() {
 
     // Styles
     wp_enqueue_style( 'site-styles', get_stylesheet_directory_uri() . '/app/css/styles.min.css', array(), CHILD_THEME_VERSION );
@@ -45,7 +43,6 @@ function be_remove_genesis_page_templates( $page_templates ) {
     return $page_templates;
 }
  
-
 //* Remove site layouts
 genesis_unregister_layout('content-sidebar-sidebar');
 genesis_unregister_layout('sidebar-sidebar-content');
@@ -64,7 +61,6 @@ add_theme_support( 'genesis-structural-wraps', array(
     'footer'
 ) );
 
-
 //* Remove Site Description in Header
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -81,31 +77,29 @@ add_action('genesis_header', 'genesis_do_nav', 10);
 //  remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 //  remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
 
-
-
 // Remove comment form allowed tags
-add_filter( 'comment_form_defaults', 'mobile_first_remove_comment_form_allowed_tags' );
-function mobile_first_remove_comment_form_allowed_tags($defaults) {
+add_filter( 'comment_form_defaults', 'gs_remove_comment_form_allowed_tags' );
+function gs_remove_comment_form_allowed_tags($defaults) {
     $defaults['comment_notes_after'] = '';
     return $defaults;
 }
 
 //* Modify the length of post excerpts
-add_filter( 'excerpt_length', 'sp_excerpt_length' );
-function sp_excerpt_length( $length ) {
+add_filter( 'excerpt_length', 'gs_excerpt_length' );
+function gs_excerpt_length( $length ) {
     return 40; // pull first 40 words
 }
 
-// Remove edit links
-add_filter('genesis_edit_post_link', '__return_false');
+// // Remove edit links
+// add_filter('genesis_edit_post_link', '__return_false');
 
 // Add author box to single posts and author archives
 add_filter('get_the_author_genesis_author_box_single', '__return_true');
 add_filter('get_the_author_genesis_author_box_archive', '__return_true');
 
-// // And remove it from anything that's not a post
-// add_action('genesis_entry_footer', 'wpm_remove_author_box');
-// function wpm_remove_author_box() {
+// // And remove author box from anything that's not a post
+// add_action('genesis_entry_footer', 'gs_remove_author_box');
+// function gs_remove_author_box() {
 //     if (get_post_type() != 'post') {
 //         remove_action('genesis_after_entry', 'genesis_do_author_box_single', 8);
 //         // remove_action( 'genesis_after_post', 'genesis_do_author_box_single', 8 );
@@ -113,8 +107,8 @@ add_filter('get_the_author_genesis_author_box_archive', '__return_true');
 // }
 
 //* Customize the credits
-add_filter( 'genesis_footer_creds_text', 'jp_footer_creds_text' );
-function jp_footer_creds_text() {
+add_filter( 'genesis_footer_creds_text', 'gs_footer_creds_text' );
+function gs_footer_creds_text() {
     echo '<div class="creds"><p>';
     echo 'Copyright &copy; ';
     echo date('Y');
@@ -140,6 +134,5 @@ function jp_footer_creds_text() {
 
 
 
- /* =====================================================================================*/
 // Close Child Theme Setup
  }

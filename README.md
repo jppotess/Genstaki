@@ -11,7 +11,7 @@
 
 #### What is it?
 
-This is currently set up for a custom WordPress starter theme, specifically as a [Genesis framework](http://my.studiopress.com/themes/)(by StudioPress) child theme. If you don't want to use Genesis, just delete the contents of the functions.php file and you're good to go.
+This is currently set up for a custom WordPress starter theme, specifically as a [Genesis framework](http://my.studiopress.com/themes/)(by StudioPress) child theme. If you don't want to use Genesis, there are two easy configuration options below.
 
 ### Dependencies
 
@@ -32,6 +32,30 @@ This is currently set up for a custom WordPress starter theme, specifically as a
 - sets watch task to .jade, .scss, .js, and functions.php files
 
 CSS folder structure is inteneded for a modular CSS approach. Currently you have to import each new .scss file into the main _index.scss file for that folder. I'll be workin on a way around this in the future.
+
+#### But I don't want to use the Genesis framework
+
+Just remove all the code in the functions.php file except for the following:
+
+```// Child theme (do not remove)
+define('CHILD_THEME_NAME', 'Genstaki');
+define('CHILD_THEME_URL', 'http://www.johnpotessdesign.com/');
+define('CHILD_THEME_VERSION', '0.1.0');
+
+
+ //* Enqueue scripts and styles
+add_action( 'wp_enqueue_scripts', 'gs_scripts_and_styles', 15);
+function gs_scripts_and_styles() {
+
+    // Styles
+    wp_enqueue_style( 'site-styles', get_stylesheet_directory_uri() . '/app/css/styles.min.css', array(), CHILD_THEME_VERSION );
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION); 
+
+    // Scripts
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('site-scripts', get_stylesheet_directory_uri() . '/app/js/scripts.min.js', array('jquery'), '', true);
+}```
+
 
 #### To Do
 

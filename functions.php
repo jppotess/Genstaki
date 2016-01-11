@@ -13,7 +13,7 @@
 
 
 // Child theme (do not remove)
-define('CHILD_THEME_NAME', 'JP Genesis Starter');
+define('CHILD_THEME_NAME', 'Genstaki');
 define('CHILD_THEME_URL', 'http://www.johnpotessdesign.com/');
 define('CHILD_THEME_VERSION', '0.0.1');
 
@@ -64,29 +64,6 @@ add_theme_support( 'genesis-structural-wraps', array(
     'footer'
 ) );
 
-//* Set preferred Genesis settings
-add_filter('genesis_theme_settings_defaults', 'mtd_define_genesis_settings', 10, 2);
-function mtd_define_genesis_settings($options) {
-
-    $options['trackbacks_posts'] = 0;
-    $options['breadcrumb_home'] = 1;
-    $options['breadcrumb_posts_page'] = 1;
-    $options['breadcrumb_single'] = 1;
-    $options['breadcrumb_page'] = 1;
-    $options['breadcrumb_archive'] = 1;
-    $options['content_archive_thumbnail'] = 1;
-    $options['image_alignment'] = '';
-    
-    return $options;
-}
-
-// Remove prefix text from breadcrumbs
-add_filter('genesis_breadcrumb_args', 'mtd_breadcrumb_args');
-function mtd_breadcrumb_args($args) {
-    $args['labels']['prefix'] = '';
-    // $args['sep']           = ' ';
-    return $args;
-}
 
 //* Remove Site Description in Header
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
@@ -134,19 +111,6 @@ add_filter('get_the_author_genesis_author_box_archive', '__return_true');
 //         // remove_action( 'genesis_after_post', 'genesis_do_author_box_single', 8 );
 //     }
 // }
-
-// Modify the size of the Gravatar in the author box
-add_filter('genesis_author_box_gravatar_size', 'mobile_first_author_box_gravatar');
-function mobile_first_author_box_gravatar($size) {
-    return 100;
-}
-
-// Modify the size of the Gravatar in the entry comments
-add_filter('genesis_comment_list_args', 'mobile_first_comments_gravatar');
-function mobile_first_comments_gravatar($args) {
-    $args['avatar_size'] = 60;
-    return $args;
-}
 
 //* Customize the credits
 add_filter( 'genesis_footer_creds_text', 'jp_footer_creds_text' );

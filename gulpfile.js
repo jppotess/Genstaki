@@ -116,7 +116,7 @@ gulp.task('cleanFull', function(callback) {
 })
 
 
-// Clean Task - excpt images
+// Clean Task - except images
 gulp.task('clean', function(callback){
     del(['app/**/*', '!app/images', '!app/images/**/*'], callback)
 })
@@ -143,7 +143,7 @@ gulp.task('watch', ['build'], function() {
 gulp.task('serve',  ['watch'], function() {
 
     browserSync({
-        proxy: "localhost:3000",
+        // proxy: "localhost:3000",
     });
 })
 

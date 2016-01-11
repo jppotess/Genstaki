@@ -33,7 +33,7 @@ This is currently set up for a custom WordPress starter theme, specifically as a
 
 CSS folder structure is inteneded for a modular CSS approach. Currently you have to import each new .scss file into the main _index.scss file for that folder. I'll be workin on a way around this in the future.
 
-#### But I don't want to use the Genesis framework
+#### "But what if I don't want to use the Genesis framework?"
 
 Just remove all the code in the functions.php file except for the following:
 

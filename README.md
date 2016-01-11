@@ -11,7 +11,7 @@
 
 #### What is it?
 
-This is currently set up for a custom WordPress starter theme, specifically as a [Genesis framework](http://my.studiopress.com/themes/)(by StudioPress) child theme. If you don't want to use Genesis, there are two easy configuration options below.
+This is currently set up for a custom WordPress starter theme, specifically as a [Genesis framework](http://my.studiopress.com/themes/)(by StudioPress) child theme. If you don't want to use Genesis, read the "But what if I don't want to use the Genesis framework?" section.
 
 #### Dependencies
 

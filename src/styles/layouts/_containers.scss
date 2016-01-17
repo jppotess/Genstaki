@@ -1,0 +1,18 @@
+// containers
+
+.site-container {
+  @include outer-container;
+}
+
+
+.site-inner,
+.wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.site-inner {
+  clear: both;
+  padding-top: 40px;
+
+}

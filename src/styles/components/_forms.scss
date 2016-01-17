@@ -1,0 +1,62 @@
+/* ## Forms
+--------------------------------------------- */
+
+input,
+select,
+textarea {
+  background-color: $white;
+  border: 1px solid $color--primary;
+  color: $color--primary;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 16px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid $color--accent;
+  outline: none;
+}
+
+input[type="checkbox"],
+input[type="image"],
+input[type="radio"] {
+  width: auto;
+}
+
+::-moz-placeholder {
+  color: $color--primary;
+  font-weight: 300;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  color: $color--primary;
+  font-weight: 300;
+}
+
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"]{
+  background-color: $color--primary;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 16px 24px;
+  text-transform: uppercase;
+  width: auto;
+
+  &:hover {
+    background-color: $white;
+    color: $color--accent;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button {
+  display: none;
+}

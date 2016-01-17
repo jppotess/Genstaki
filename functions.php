@@ -11,7 +11,7 @@
  function gs_child_theme_setup() { 
 
 // Child theme (do not remove)
-define('CHILD_THEME_NAME', 'Genstaki');
+define('CHILD_THEME_NAME', 'thesimplekind');
 define('CHILD_THEME_URL', 'http://www.johnpotessdesign.com/');
 define('CHILD_THEME_VERSION', '0.1.0');
 
@@ -19,6 +19,9 @@ define('CHILD_THEME_VERSION', '0.1.0');
  //* Enqueue scripts and styles
 add_action( 'wp_enqueue_scripts', 'gs_scripts_and_styles', 15);
 function gs_scripts_and_styles() {
+
+    // Parent Styles
+    // wp_enqueue_style( 'genesis-css', get_template_directory_uri() . '/style.css' );
 
     // Styles
     wp_enqueue_style( 'site-styles', get_stylesheet_directory_uri() . '/app/css/styles.min.css', array(), CHILD_THEME_VERSION );
@@ -28,6 +31,9 @@ function gs_scripts_and_styles() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('site-scripts', get_stylesheet_directory_uri() . '/app/js/scripts.min.js', array('jquery'), '', true);
 }
+
+// Woocommerce Support
+add_theme_support( 'genesis-connect-woocommerce' );
 
 //* Add HTML5 support
 add_theme_support( 'html5' );
@@ -105,6 +111,7 @@ add_filter('get_the_author_genesis_author_box_archive', '__return_true');
 //         // remove_action( 'genesis_after_post', 'genesis_do_author_box_single', 8 );
 //     }
 // }
+
 
 //* Customize the credits
 add_filter( 'genesis_footer_creds_text', 'gs_footer_creds_text' );

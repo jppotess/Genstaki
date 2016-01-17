@@ -3,7 +3,6 @@ var del          = require('del');
 var runSequence  = require('run-sequence');
 var merge        = require('merge2');
 
-var bourbon      = require('node-bourbon');
 var neat         = require('node-neat');
 
 var sourcemaps   = require('gulp-sourcemaps');
@@ -79,8 +78,7 @@ gulp.task('sass', function() {
     .pipe(plumber(plumberErrorHandler))
     .pipe(sourcemaps.init())
     .pipe(sass({
-        includePaths: require('node-bourbon').includePaths,
-        includePaths: require('node-neat').includePaths
+        includePaths: neat.includePaths,
     }))
     .pipe(concat('styles.min.css'))
     // .pipe(minifyCss())
@@ -143,7 +141,7 @@ gulp.task('watch', ['build'], function() {
 gulp.task('serve',  ['watch'], function() {
 
     browserSync({
-        proxy: "yourlocal.dev",
+        proxy: "www.thesimplekind.dev",
     });
 })
 

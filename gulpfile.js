@@ -42,6 +42,17 @@ var plumberErrorHandler = { errorHandler: notify.onError({
     })
 };
 
+// WP Stylesheet
+gulp.task('wp-stylesheet', function(){
+    return gulp.src('style.css')
+    .pipe(gulp.dest('app'));
+})
+
+// functions.php
+gulp.task('functions', function(){
+    return gulp.src('functions.php')
+    .pipe(gulp.dest('app'));
+})
 
 // Images
 gulp.task('images', function(){
@@ -123,7 +134,7 @@ gulp.task('clean', function(callback){
 // Build Task
 gulp.task('build', function(callback){
     runSequence('clean',
-        ['jade', 'sass', 'babel', 'images', 'fonts'],
+        ['jade', 'sass', 'babel', 'images', 'fonts', 'functions', 'wp-stylesheet'],
         callback
     )
 })
@@ -134,6 +145,8 @@ gulp.task('watch', ['build'], function() {
     gulp.watch('src/styles/**/*.scss', ['sass']);
     gulp.watch('src/scripts/**/*.js', ['babel']);
     gulp.watch('src/**/*.jade', ['jade']);
+    gulp.watch('style.css', ['wp-stylesheet']);
+    gulp.watch('functions.php', ['functions']);
 })
 
 
